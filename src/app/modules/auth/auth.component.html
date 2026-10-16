@@ -1,0 +1,40 @@
+<div class="flex min-h-screen flex-column md:flex-row">
+
+  <!-- LEFT -->
+  <div class="hidden md:block md:w-6 h-screen overflow-hidden relative">
+    <img
+      src="/assets/images/login-bg.svg"
+      class="w-full h-full object-cover"
+      style="object-position: 40% 30%; background: #E0EBFF"
+    />
+
+    <div
+      class="absolute top-0 left-0 w-full h-full"
+      style="background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(0,0,0,0.10));">
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div
+    class="w-full md:w-6 flex justify-content-center align-items-center bg-white px-5 md:px-7 auth-panel"
+    style="box-shadow: -10px 0 30px rgba(0,0,0,0.04);"
+  >
+    <div class="w-full auth-panel-content" style="max-width: 520px;">
+      <div class="mb-5 text-center">
+        <h2 class="mb-3 text-900" style="font-size: 2rem; font-weight: 700; line-height: 1.2;">
+          {{"MAIN.AUTH.ENTER_SYSTEM" | translate}}
+        </h2>
+        <p class="text-600 m-0" style="font-size: 1.05rem; line-height: 1.6;">
+          {{"MAIN.AUTH.ENTER_SYSTEM_DESC" | translate}}
+        </p>
+      </div>
+
+      <div class="mb-4">
+        <p-tabMenu [model]="routeItems"></p-tabMenu>
+      </div>
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
