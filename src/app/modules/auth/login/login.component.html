@@ -38,7 +38,7 @@
             </p-dialog>
             <a class="font-medium no-underline ml-2 text-right cursor-pointer"
                (click)="display=true"
-               style="color: #CC400C">{{'COMMON.USER_AGREEMENT' | translate}}</a>
+               style="color: var(--app-agreement-link)">{{'COMMON.USER_AGREEMENT' | translate}}</a>
         </div>
         <button pButton pRipple label="{{'MAIN.AUTH.LOGON' | translate}}"
                 [disabled]="form.invalid || !confirmed"

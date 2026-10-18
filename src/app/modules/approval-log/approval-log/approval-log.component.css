@@ -40,11 +40,11 @@
 }
 
 tr.inProgress {
-  background-color: #fff7e6;
+  background-color: var(--app-bg-warn-tint);
 }
 
 tr.approved {
-  background-color: #e8fbe8;
+  background-color: var(--app-bg-success-tint);
 }
 
 @media (max-width: 768px) {

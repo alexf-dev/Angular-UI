@@ -16,6 +16,20 @@ import {AuthService} from './core/service/auth.service';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastModule} from "primeng/toast";
+import {MockApiInterceptor} from "./interceptors/mock-api.interceptor";
+
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { ErrorDialogComponent } from '@shared/error-dialog/error-dialog.component';
+import { ConfigService } from './core/config/config.service';
+
+/** Фабрика для APP_INITIALIZER — возвращает функцию, которая вызывает load() */
+export function initializeApp(configService: ConfigService): () => Promise<void> {
+  return () => configService.load();
+}
+
+export function loadConfig(configService: ConfigService): () => Promise<void> {
+  return () => configService.load();
+}
 
 /**
  * Блокирует бутстрап приложения, пока не загрузятся переводы
@@ -61,6 +75,7 @@ function appInitializer(authService: AuthService) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ErrorDialogComponent,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
@@ -80,13 +95,23 @@ function appInitializer(authService: AuthService) {
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
+      useClass: MockApiInterceptor,
       multi: true,
     },
     {
       provide: APP_INITIALIZER,
       useFactory: translateAppInitializer,
       deps: [TranslateService],
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadConfig,
+      deps: [ConfigService],
+      multi: true
+    },
+    { provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     },
     MessageService,

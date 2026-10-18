@@ -4,7 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@shared/*": ["src/app/modules/shared/*"]
+      "@shared/*": ["src/app/modules/shared/*"],
+      "@environments/*": ["src/environments/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

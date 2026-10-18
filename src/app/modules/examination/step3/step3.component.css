@@ -1,6 +1,6 @@
 /* Основные стили, как раньше */
 .docs-card {
-  background: #fff;
+  background: var(--app-card-bg);
   border-radius: 10px;
   box-shadow: 0 2px 12px #e5eaf333;
   padding: 20px 25px;
@@ -19,7 +19,7 @@
 }
 
 .docs-table thead tr {
-  background: #f6f7fa;
+  background: var(--app-surface-page);
 }
 
 .docs-table th, .docs-table td {
@@ -28,7 +28,7 @@
 }
 
 .docs-table th {
-  color: #8997b3;
+  color: var(--app-text-secondary);
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -39,7 +39,7 @@
 }
 
 .accordion-row {
-  background: #f6f7fa;
+  background: var(--app-surface-page);
   cursor: pointer;
   font-weight: 500;
   user-select: none;
@@ -65,7 +65,7 @@
 
 /* Внутренний аккордеон */
 .inner-accordion {
-  background: #f8fafc;
+  background: var(--app-surface-page);
   padding: 9px 15px;
   font-size: 15px;
   cursor: pointer;
@@ -76,20 +76,20 @@
   transition: background 0.15s;
 }
 .inner-accordion:hover {
-  background: #eef2fa;
+  background: var(--app-tint-blue);
 }
 
 .inner-content {
   padding: 13px 40px;
-  background: #fafdff;
+  background: var(--app-surface-page);
   font-size: 14px;
-  color: #3b3b3b;
+  color: var(--app-text);
   border-left: 3px solid #e5eaf3;
   border-bottom: 1px solid #e5eaf3;
 }
 
 .request-btn, .attach-btn, .view-btn {
-  background: #f6f7fa;
+  background: var(--app-surface-page);
   border: none;
   border-radius: 5px;
   padding: 5px 20px;
@@ -105,19 +105,19 @@
   border: 1px solid #b4ccf8;
 }
 .attach-btn {
-  background: #f7f8fa;
-  color: #51596c;
+  background: var(--app-surface-page);
+  color: var(--app-text-medium);
   border: 1px solid #e5eaf3;
   display: flex;
   align-items: center;
 }
 .view-btn {
-  background: #f7f8fa;
-  color: #8997b3;
+  background: var(--app-surface-page);
+  color: var(--app-text-secondary);
   border: 1px solid #e5eaf3;
 }
 .request-btn:hover, .attach-btn:hover, .view-btn:hover {
-  background: #dde8fd;
+  background: var(--app-tint-blue-strong);
 }
 
 /* Иконки (заглушки, можно заменить на svg) */

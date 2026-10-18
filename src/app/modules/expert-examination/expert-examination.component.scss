@@ -49,7 +49,7 @@
 .expert-examination-sidebar {
   width: 264px;
   flex-shrink: 0;
-  background: #F5F7FC;
+  background: var(--app-surface-panel);
   border-radius: 8px;
   padding: 12px;
 
@@ -82,7 +82,7 @@
           font-style: normal;
           line-height: 145%;
           letter-spacing: 0%;
-          color: #374151;  /* gray-700 для неактивных */
+          color: var(--app-text);  /* gray-700 для неактивных */
           background: transparent;
           transition: all 0.2s ease;
           flex: none;
@@ -94,8 +94,8 @@
 
           // Активный пункт меню (выделенный)
           &.active-menu-item {
-            background: #E2E8F0;
-            color: #262626;
+            background: var(--app-border-light);
+            color: var(--app-text);
             font-weight: 700;  /* Bold для активного */
           }
         }

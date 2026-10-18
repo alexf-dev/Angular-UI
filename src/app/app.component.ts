@@ -17,6 +17,10 @@ import { AuthService } from './core/service/auth.service';
 import { TranslationService } from './core/service/translation.service';
 import { DictinoryValue } from './dto/dictinory-value';
 
+import { HttpClient } from '@angular/common/http';
+import { environment } from '@environments/environment';
+import { ConfigService } from './core/config/config.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,10 +33,12 @@ export class AppComponent implements OnInit, OnDestroy {
   private dictionariesLoaded = false;
 
   constructor(
+    private configService: ConfigService,
     private readonly api: ApiService,
     private readonly primengConfig: PrimeNGConfig,
     private readonly translationService: TranslationService,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -66,6 +72,44 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  /** Показываем кнопки, если включены моки ИЛИ включён флаг в конфиге */
+  public get showTestButtons(): boolean {
+    // Приоритет: URL-параметр > localStorage > конфиг > моки
+    if (this.hasDebugParamInUrl()) return true;
+    if (this.isDebugInLocalStorage()) return true;
+    return environment.useMocks || this.configService.enableTestButtons;
+  }
+
+  public test404(): void {
+    this.http.get('/api/test/404').subscribe({
+      next: () => console.log('404: Success (unexpected)'),
+      error: (err) => console.log('404: Error caught in component', err)
+    });
+  }
+
+  public test500(): void {
+    this.http.get('/api/test/500').subscribe({
+      next: () => console.log('500: Success (unexpected)'),
+      error: (err) => console.log('500: Error caught in component', err)
+    });
+  }
+
+  public testNoConnection(): void {
+    // Этот запрос уйдёт на несуществующий домен → статус 0
+    this.http.get('http://nonexistent-domain-12345.com/api/test').subscribe({
+      next: () => console.log('No connection: Success (unexpected)'),
+      error: (err) => console.log('No connection: Error caught in component', err)
+    });
+  }
+
+  private hasDebugParamInUrl(): boolean {
+    return new URLSearchParams(window.location.search).has('debug');
+  }
+
+  private isDebugInLocalStorage(): boolean {
+    return localStorage.getItem('debugMode') === 'true';
   }
 
   private watchAuthenticatedProfile(): void {

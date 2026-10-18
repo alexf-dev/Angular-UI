@@ -5,7 +5,7 @@
 label {
   display: block;
   margin-bottom: 0.25rem;
-  color: #495057;
+  color: var(--app-text-medium);
   font-size: 0.9rem;
 }
 
@@ -14,16 +14,16 @@ label {
 }
 
 .muted-text {
-  color: #6c757d;
+  color: var(--app-text-secondary);
 }
 
 .doc-name {
   font-weight: 600;
-  color: #212529;
+  color: var(--app-text);
 }
 
 .expanded-row > td {
-  background: #f8f9fa;
+  background: var(--app-surface-page);
   padding: 0.75rem 1rem;
 }
 
@@ -35,7 +35,7 @@ label {
 
 .nested-section {
   padding: 0.75rem;
-  background: #ffffff;
+  background: var(--app-card-bg);
   border: 1px solid #e9ecef;
   border-radius: 6px;
 }
@@ -46,7 +46,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6c757d;
+  color: var(--app-text-secondary);
   font-size: 1rem;
 }
 

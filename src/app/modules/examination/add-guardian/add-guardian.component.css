@@ -6,12 +6,12 @@
 label {
   display: block;
   margin-bottom: 0.25rem;
-  color: #495057;
+  color: var(--app-text-medium);
   font-size: 0.9rem;
 }
 
 .readonly-field {
-  background-color: #f8f9fa;
+  background-color: var(--surface-ground);
 }
 
 .page-actions {

@@ -17,8 +17,11 @@
   <!-- RIGHT -->
   <div
     class="w-full md:w-6 flex justify-content-center align-items-center bg-white px-5 md:px-7 auth-panel"
-    style="box-shadow: -10px 0 30px rgba(0,0,0,0.04);"
+    style="box-shadow: -10px 0 30px rgba(0,0,0,0.04); position: relative;"
   >
+    <div style="position: absolute; top: 16px; right: 16px;">
+      <app-theme-toggle></app-theme-toggle>
+    </div>
     <div class="w-full auth-panel-content" style="max-width: 520px;">
       <div class="mb-5 text-center">
         <h2 class="mb-3 text-900" style="font-size: 2rem; font-weight: 700; line-height: 1.2;">

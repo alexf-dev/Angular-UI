@@ -3,11 +3,11 @@
   background: transparent;
   cursor: pointer;
   padding: 0;
-  color: #64748b;
+  color: var(--app-text-secondary);
 }
 
 .expand-btn:hover {
-  color: #334155;
+  color: var(--app-text);
 }
 
 :host ::ng-deep {

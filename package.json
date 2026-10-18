@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:mock": "ng serve --configuration mock",
     "build": "ng build",
+    "build:mock": "ng build --configuration mock",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -50,6 +52,12 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "msw": "^2.15.0",
     "typescript": "~5.2.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "src"
+    ]
   }
 }

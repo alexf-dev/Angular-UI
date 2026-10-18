@@ -8,6 +8,7 @@ import {PaginatorModule} from "primeng/paginator";
 import {TagModule} from "primeng/tag";
 import {ButtonModule} from "primeng/button";
 import {TranslateModule} from "@ngx-translate/core";
+import { ThemeToggleComponent } from '../../shared/components/theme-toggle/theme-toggle.component';
 
 @NgModule({
   declarations: [MainLayoutComponent],
@@ -19,6 +20,7 @@ import {TranslateModule} from "@ngx-translate/core";
     PaginatorModule,
     TagModule,
     ButtonModule,
+    ThemeToggleComponent,
     TranslateModule
   ]
 })

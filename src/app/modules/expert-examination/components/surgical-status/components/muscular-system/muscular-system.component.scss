@@ -5,7 +5,7 @@
 .section-title {
   font-size: 14px;
   font-weight: 600;
-  color: #262626;
+  color: var(--app-text);
   margin: 16px 0 8px;
 
   &:first-child {
@@ -26,7 +26,7 @@
 
   label {
     font-size: 14px;
-    color: #262626;
+    color: var(--app-text);
     user-select: none;
     cursor: pointer;
   }
