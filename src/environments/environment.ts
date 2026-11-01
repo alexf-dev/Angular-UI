@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  useMocks: false
+  useMocks: false,
+  useBff: false,  // ← ВЫКЛЮЧЕНО ПО УМОЛЧАНИЮ
+  apiUrl: 'https://test-cbdi-gateway.enbek.kz',
+  bffUrl: 'https://test-cbdi-bff.enbek.kz'  // ← Укажите реальный URL BFF
 };
 
 /*
